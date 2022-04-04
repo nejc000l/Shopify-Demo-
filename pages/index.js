@@ -1,4 +1,4 @@
-import { getProductCollection } from "../lib/shopify"
+import { getProductsInCollection } from "../lib/shopify"
 import ProductCard from '../components/ProductCard'
 export default function Home({ products }) {
   return (
@@ -19,7 +19,7 @@ export default function Home({ products }) {
   )
 }
 export async function getStaticProps() {
-  const products = await getProductCollection()
+  const products = await getProductsInCollection()
   return {
     props: { products },
   }

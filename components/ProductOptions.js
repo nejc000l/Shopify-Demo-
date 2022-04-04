@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-export default function ProductOptions({ name, values, selectedOptions, setOptions, productInventory, selectedVariant }) {
+export default function ProductOptions({ name, values, selectedOptions, setOptions,variantquantity, productInventory, selectedVariant }) {
   
   return (
     <fieldset className="mt-3">
