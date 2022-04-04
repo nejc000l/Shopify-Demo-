@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout'
-import ShopProvider from '../context/ShopContext'
+import ShopProvider from '../context/shopContext'
 import {useRouter} from 'next/router'
 
 
