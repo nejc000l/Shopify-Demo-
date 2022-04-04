@@ -50,24 +50,34 @@ export default function ProductForm({ product }) {
 
 
   return (
-    <div className="mw:w-1/3 flex w-full flex-col rounded-2xl  p-4 shadow-lg">
-      <h2 className="text-2xl font-bold">{product.title}</h2>
-      <span className="pb-3">
-        {formatter.format(product.variants.edges[0].node.priceV2.amount)}
-      </span>
-      {product.options.map(({ name, values }) => (
+    <div className="rounded-2xl p-4 shadow-lg flex flex-col w-full md:w-1/3">
+    <h2 className="text-2xl font-bold">{product.title}</h2>
+    <span className="pb-3">{formatter.format(product.variants.edges[0].node.priceV2.amount)}</span>
+    {
+      product.options.map(({ name, values }) => (
         <ProductOptions
-            key={`key-${name}`}
-            name={name}
-            values={values}
-            selectedOptions={selectedOptions}
-            setOptions={setOptions}
-            selectedVariant={selectedVariant}
+          key={`key-${name}`}
+          name={name}
+          values={values}
+          selectedOptions={selectedOptions}
+          setOptions={setOptions}
+          selectedVariant={selectedVariant}
         />
-      ))}
-      <button onClick={()=>{addToCart(selectedVariant)}} className="mt-3 w-[200px] rounded-md  bg-black  px-2 py-3 text-white hover:bg-gray-800">
-        Add to cart
-      </button>
-    </div>
-  )
+      ))
+    }
+    
+      
+        <button
+          onClick={() => {
+            addToCart(selectedVariant)
+          }}
+          className="bg-black rounded-lg text-white px-2 py-3 mt-3 hover:bg-gray-800">Add To Card
+        </button> :
+        <button
+          className="rounded-lg text-white px-2 py-3 mt-3 bg-gray-800 cursor-not-allowed">
+            Sold out!
+        </button>
+    
+  </div>
+)
 }
